@@ -1,4 +1,4 @@
-const DeleteTaskButton = ({ taskId }) => {
+const DeleteTaskButton = ({ taskId, onSuccess }) => {
 	const deleteTask = async () => {
 		try {
 			const response = await fetch(
@@ -11,7 +11,10 @@ const DeleteTaskButton = ({ taskId }) => {
 			if (!response.ok) {
 				throw new Error('Error deleting task');
 			}
-			// Optionally, add a callback or state update to reflect the deletion in the UI
+			// Invoke the onSuccess callback after the task is successfully deleted
+			if (typeof onSuccess === 'function') {
+				onSuccess(taskId);
+			}
 		} catch (error) {
 			console.error(error);
 		}

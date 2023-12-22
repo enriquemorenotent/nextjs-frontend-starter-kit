@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Input from '../ui/Input';
 import Button from '../ui/Button';
 
-const NewTaskForm = () => {
+const NewTaskForm = ({ onSuccess }) => {
 	const [title, setTitle] = useState('');
 	const [deadline, setDeadline] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
@@ -23,6 +23,9 @@ const NewTaskForm = () => {
 			const data = await response.json();
 			console.log(data);
 			setMessage('Task created successfully!');
+			if (onSuccess) {
+				onSuccess(data); // Call the onSuccess callback with the created task data
+			}
 		} catch (error) {
 			console.error('Failed to create task:', error);
 			setMessage('Failed to create task. Please try again.');
