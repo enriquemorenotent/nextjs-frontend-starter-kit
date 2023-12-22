@@ -52,7 +52,7 @@ const Login = () => {
 		<div className="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
 			<Box heading="Sign in to your account">
 				<form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-					<div className="rounded-md shadow-sm -space-y-px">
+					<div className="flex flex-col gap-4 rounded-md shadow-sm">
 						<div>
 							<Input
 								id="email-address"

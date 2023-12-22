@@ -10,8 +10,17 @@ const Header = () => {
 	return (
 		<header className="bg-gray-800 text-white">
 			<div className="container mx-auto flex justify-between items-center py-4">
-				<div>
-					<h1 className="text-2xl font-bold">Bootstrap Webapp FE</h1>
+				<div className="flex flex-row items-center">
+					<Link href="/" className="mr-10">
+						<h1 className="text-2xl font-bold">
+							Bootstrap Webapp FE
+						</h1>
+					</Link>
+					{isLoggedIn && (
+						<Link href="/tasks" className="text-white mr-4">
+							Tasks
+						</Link>
+					)}
 				</div>
 				<div>
 					{isLoggedIn ? (
