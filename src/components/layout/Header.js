@@ -1,8 +1,8 @@
 'use client';
 
 import { useContext } from 'react';
-import { AuthContext } from '@/components/context/AuthContext';
 import Link from 'next/link';
+import { AuthContext } from '@/components/context/AuthContext';
 
 const Header = () => {
 	const { isLoggedIn, logout } = useContext(AuthContext);

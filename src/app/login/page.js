@@ -1,17 +1,21 @@
 'use client';
 
+import { useContext, useEffect, useState } from 'react';
+import { redirect } from 'next/navigation';
 import { AuthContext } from '@/components/context/AuthContext';
 import Box from '@/components/ui/Box';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import { useContext, useState } from 'react';
 
 const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [errors, setErrors] = useState({ email: '', password: '' });
+	const { isLoggedIn, login } = useContext(AuthContext);
 
-	const { login } = useContext(AuthContext);
+	useEffect(() => {
+		if (isLoggedIn) redirect('/profile');
+	}, [isLoggedIn]);
 
 	const handleEmailChange = (event) => {
 		setEmail(event.target.value);

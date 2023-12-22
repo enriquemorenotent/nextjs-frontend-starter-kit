@@ -1,10 +1,11 @@
 'use client';
 
+import { useContext, useEffect, useState } from 'react';
+import { redirect } from 'next/navigation';
 import { AuthContext } from '@/components/context/AuthContext';
 import Box from '@/components/ui/Box';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import { useContext, useState } from 'react';
 
 const Register = () => {
 	const [email, setEmail] = useState('');
@@ -15,8 +16,11 @@ const Register = () => {
 		password: '',
 		confirmPassword: '',
 	});
+	const { isLoggedIn, register } = useContext(AuthContext);
 
-	const { register } = useContext(AuthContext);
+	useEffect(() => {
+		if (isLoggedIn) redirect('/profile');
+	}, [isLoggedIn]);
 
 	const handleEmailChange = (event) => {
 		setEmail(event.target.value);
