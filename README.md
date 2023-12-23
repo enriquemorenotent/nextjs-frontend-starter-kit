@@ -4,6 +4,8 @@
 
 A Next.js front-end boilerplate showcasing user authentication and API integration. This project serves as a practical demonstration of a user-facing application, with features like user registration, login, profile management, and task handling. Built with Tailwind CSS, it provides a responsive and modern user interface.
 
+This frontend is designed to work seamlessly with the [express-jwt-starter-kit](https://github.com/enriquemorenotent/express-jwt-starter-kit) backend.
+
 ## Features
 
 - User authentication (login, registration, profile)
